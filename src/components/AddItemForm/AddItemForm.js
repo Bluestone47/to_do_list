@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 const AddItemForm = ({ onAdd }) => {
@@ -23,4 +24,10 @@ AddItemForm.propTypes = {
   onAdd: PropTypes.func.isRequired
 };
 
-export default AddItemForm;
+const mapStateToProps = state => ({
+  items: state.items
+});
+
+const mapDispatchToProps = {};
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddItemForm);
